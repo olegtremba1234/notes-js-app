@@ -5,7 +5,7 @@
   "homepage": "https://olegtremba1234.github.io/notes-js-app",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /parcel-project-template/"
+    "build": "parcel build src/*.html --public-url /notes-js-app/"
   },
   
   "keywords": [],
