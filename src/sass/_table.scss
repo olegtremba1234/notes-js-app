@@ -1,0 +1,29 @@
+$note-table-border-color: #ccc;
+$note-table-header-bg: #f2f2f2;
+$note-table-row-bg: #fff;
+
+.note-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid $note-table-border-color;
+
+    th,
+    td {
+        padding: 10px;
+        border-bottom: 1px solid $note-table-border-color;
+        text-align: center;
+    }
+
+    thead {
+        background-color: $note-table-header-bg;
+        font-weight: bold;
+    }
+
+    tbody {
+        tr {
+            &:nth-child(even) {
+                background-color: $note-table-row-bg;
+            }
+        }
+    }
+}
