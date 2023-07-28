@@ -2,8 +2,14 @@ $note-table-border-color: #ccc;
 $note-table-header-bg: #f2f2f2;
 $note-table-row-bg: #fff;
 
-.note-table {
-    width: 100%;
+.summary-table-container{
+    margin-top: 50px;
+    border-radius: 3px;
+        box-shadow: 0 0 10px rgba(118, 80, 13, 0.9);
+        overflow: hidden;
+}
+.summary-table {
+    width: 100vh;
     border-collapse: collapse;
     border: 1px solid $note-table-border-color;
 
@@ -21,6 +27,7 @@ $note-table-row-bg: #fff;
 
     tbody {
         tr {
+            background-color: $note-table-row-bg;
             &:nth-child(even) {
                 background-color: $note-table-row-bg;
             }

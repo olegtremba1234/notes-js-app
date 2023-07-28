@@ -1,0 +1,97 @@
+$note-table-border-color: #ccc;
+$note-table-header-bg: #f2f2f2;
+$note-table-row-bg: #fff;
+
+.note-table-container{
+    width: 100vh;
+    border-radius: 3px;
+        box-shadow: 0 0 10px rgba(118, 80, 13, 0.9);
+        overflow: hidden;
+}
+
+.note-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid $note-table-border-color;
+    color: rgb(0, 0, 24);
+
+    th,
+    td {
+        padding: 10px;
+        border-bottom: 1px solid $note-table-border-color;
+        text-align: center;
+    }
+
+    thead {
+        background-color: $note-table-header-bg;
+        font-weight: bold;
+    }
+
+    tbody {
+        tr {
+            background-color: $note-table-row-bg;
+            &:nth-child(even) {
+                background-color: $note-table-row-bg;
+            }
+        }
+    }
+}
+
+.add-note-btn-container{
+    margin-top: 20px;
+    display: flex;
+    justify-content: end;
+}
+
+.archive-button {
+    width: 20px;
+    height: 20px;
+    padding: 8px;
+    /* Add padding to increase clickable area */
+    border: none;
+    background-color: transparent;
+    background-image: url('../images/box-archive-solid.svg');
+    /* Set the SVG image as the background */
+    background-size: cover;
+    /* Adjust background-size as needed */
+    cursor: pointer;
+    &:hover{
+        transform: scale(1.1);
+    }
+}
+
+.edit-button{
+    width: 20px;
+    height: 20px;
+    padding: 8px;
+    /* Add padding to increase clickable area */
+    border: none;
+    background-color: transparent;
+    background-image: url('../images/pen-solid.svg');
+    /* Set the SVG image as the background */
+    background-size: cover;
+    /* Adjust background-size as needed */
+    cursor: pointer;
+
+    &:hover {
+       transform: scale(1.1);
+    }
+}
+
+.remove-button{
+    width: 20px;
+        height: 20px;
+        padding: 8px;
+        /* Add padding to increase clickable area */
+        border: none;
+        background-color: transparent;
+        background-image: url('../images/trash-solid.svg');
+        /* Set the SVG image as the background */
+        background-size: cover;
+        /* Adjust background-size as needed */
+        cursor: pointer;
+    
+        &:hover {
+            transform: scale(1.1);
+        }
+}

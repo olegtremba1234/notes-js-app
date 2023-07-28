@@ -4,5 +4,8 @@
 @import './base/container';
 
 // styles
+@import './body';
 @import './header';
-@import './table'
+@import './notes-table';
+@import './summary-table';
+@import './modal'
