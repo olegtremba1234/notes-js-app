@@ -1,4 +1,4 @@
-import { editNote, addNote, notes } from './new-notes.js';
+import { editNote, addNote, notes } from './notes.js';
 import { renderNotesTable, renderSummaryTable } from './ui.js';
 
 const categories = ['Task', 'Random Thought', 'Idea'];

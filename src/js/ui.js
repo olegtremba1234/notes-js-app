@@ -1,4 +1,10 @@
-import { notes, editNote, removeNote } from './new-notes.js';
+import {
+  notes,
+  editNote,
+  removeNote,
+  archiveNote,
+  unarchiveNote,
+} from './notes.js';
 import { showEditModal } from './modal.js';
 
 function renderNotesTable() {
@@ -6,46 +12,67 @@ function renderNotesTable() {
   notesTable.innerHTML = '';
 
   notes.forEach(note => {
-    if (!note.archived) {
-      const row = document.createElement('tr');
-      const nameCell = document.createElement('td');
-      const creationDateCell = document.createElement('td');
-      const categoryCell = document.createElement('td');
-      const contentCell = document.createElement('td');
-      const datesCell = document.createElement('td');
-      const editCell = document.createElement('td');
-      const archiveCell = document.createElement('td');
-      const deleteCell = document.createElement('td');
+    const row = document.createElement('tr');
+    const nameCell = document.createElement('td');
+    const creationDateCell = document.createElement('td');
+    const categoryCell = document.createElement('td');
+    const contentCell = document.createElement('td');
+    const datesCell = document.createElement('td');
+    const editCell = document.createElement('td');
+    const archiveCell = document.createElement('td');
+    const deleteCell = document.createElement('td');
 
-      nameCell.textContent = note.name;
-      creationDateCell.textContent = new Date(note.id).toLocaleString();
-      categoryCell.textContent = note.category;
-      contentCell.textContent = note.content;
-      datesCell.textContent = note.dates.join(', ');
+    nameCell.textContent = note.name;
+    creationDateCell.textContent = new Date(note.id).toLocaleString();
+    categoryCell.textContent = note.category;
+    contentCell.textContent = note.content;
+    datesCell.textContent = note.dates.join(', ');
 
-      const editButton = document.createElement('button');
-      editButton.classList.add('edit-button');
-      editButton.dataset.noteId = note.id; // Store the note ID as a data attribute
-      editButton.addEventListener('click', () => {
-        showEditModal(note.id); // Pass the note ID as an argument
-      });
+    const editButton = document.createElement('button');
+    editButton.classList.add('edit-button');
+    editButton.dataset.noteId = note.id; // Store the note ID as a data attribute
+    editButton.addEventListener('click', () => {
+      showEditModal(note.id); // Pass the note ID as an argument
+    });
 
-      editCell.appendChild(editButton);
+    editCell.appendChild(editButton);
 
-      archiveCell.innerHTML = `<button class="archive-button" id="archive-button"></button>`;
-      deleteCell.innerHTML = `<button class="remove-button"></button>`;
+    const archiveButton = document.createElement('button');
+    archiveButton.classList.add('archive-button');
+    archiveButton.dataset.noteId = note.id; // Store the note ID as a data attribute
+    archiveButton.addEventListener('click', () => {
+      if (note.archived) {
+        unarchiveNote(note.id); // Call the unarchiveNote function with the note ID
+      } else {
+        archiveNote(note.id); // Call the archiveNote function with the note ID
+      }
+      renderNotesTable(); // Update the table after archiving/unarchiving
+    });
+    archiveCell.appendChild(archiveButton);
 
-      row.appendChild(nameCell);
-      row.appendChild(creationDateCell);
-      row.appendChild(categoryCell);
-      row.appendChild(contentCell);
-      row.appendChild(datesCell);
-      row.appendChild(editCell);
-      row.appendChild(archiveCell);
-      row.appendChild(deleteCell);
+    const removeButton = document.createElement('button');
+    removeButton.classList.add('remove-button');
+    removeButton.dataset.noteId = note.id;
+    removeButton.addEventListener('click', () => {
+      removeNote(note.id);
+    });
 
-      notesTable.appendChild(row);
+    deleteCell.appendChild(removeButton);
+
+    row.appendChild(nameCell);
+    row.appendChild(creationDateCell);
+    row.appendChild(categoryCell);
+    row.appendChild(contentCell);
+    row.appendChild(datesCell);
+    row.appendChild(editCell);
+    row.appendChild(archiveCell);
+    row.appendChild(deleteCell);
+
+    if (note.archived) {
+      row.classList.add('archived-note');
     }
+
+    notesTable.insertBefore(row, notesTable.firstChild);
   });
 }
 

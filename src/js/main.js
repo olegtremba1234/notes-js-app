@@ -8,7 +8,7 @@ import {
   archiveNote,
   unarchiveNote,
   removeNote,
-} from './new-notes.js';
+} from './notes.js';
 import { renderNotesTable, renderSummaryTable } from './ui.js';
 import {
   createModal,

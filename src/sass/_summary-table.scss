@@ -7,6 +7,7 @@ $note-table-row-bg: #fff;
     border-radius: 3px;
         box-shadow: 0 0 10px rgba(118, 80, 13, 0.9);
         overflow: hidden;
+        overflow-x: scroll;
 }
 .summary-table {
     width: 100vh;
