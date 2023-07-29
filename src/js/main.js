@@ -17,7 +17,7 @@ import {
   handleAddNote,
   handleBackdropClick,
   handleEscapeKey,
-} from './js-modal.js';
+} from './modal.js';
 
 // Call the createEditModal function to generate the edit modal when the page is loaded
 document.addEventListener('DOMContentLoaded', () => {

@@ -40,6 +40,7 @@ function removeNote(noteId) {
   renderNotesTable();
   renderSummaryTable();
   console.log('remove');
+  console.log('notes', notes);
 }
 
 // Function to archive a note
