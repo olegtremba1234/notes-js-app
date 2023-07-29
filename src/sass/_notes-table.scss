@@ -47,13 +47,10 @@ $note-table-row-bg: #fff;
     width: 20px;
     height: 20px;
     padding: 8px;
-    /* Add padding to increase clickable area */
     border: none;
     background-color: transparent;
     background-image: url('../images/box-archive-solid.svg');
-    /* Set the SVG image as the background */
     background-size: cover;
-    /* Adjust background-size as needed */
     cursor: pointer;
     &:hover{
         transform: scale(1.1);
@@ -64,13 +61,10 @@ $note-table-row-bg: #fff;
     width: 20px;
     height: 20px;
     padding: 8px;
-    /* Add padding to increase clickable area */
     border: none;
     background-color: transparent;
     background-image: url('../images/pen-solid.svg');
-    /* Set the SVG image as the background */
     background-size: cover;
-    /* Adjust background-size as needed */
     cursor: pointer;
 
     &:hover {
@@ -82,13 +76,10 @@ $note-table-row-bg: #fff;
     width: 20px;
         height: 20px;
         padding: 8px;
-        /* Add padding to increase clickable area */
         border: none;
         background-color: transparent;
         background-image: url('../images/trash-solid.svg');
-        /* Set the SVG image as the background */
         background-size: cover;
-        /* Adjust background-size as needed */
         cursor: pointer;
     
         &:hover {

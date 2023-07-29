@@ -1,9 +1,6 @@
-// ui.js
-
 import { notes, editNote, removeNote } from './new-notes.js';
 import { showEditModal } from './modal.js';
 
-// Function to render the notes table
 function renderNotesTable() {
   const notesTable = document.querySelector('#notes-table');
   notesTable.innerHTML = '';
@@ -26,21 +23,15 @@ function renderNotesTable() {
       contentCell.textContent = note.content;
       datesCell.textContent = note.dates.join(', ');
 
-      // Create the "Edit" button
       const editButton = document.createElement('button');
-      // editButton.textContent = 'Edit';
       editButton.classList.add('edit-button');
       editButton.dataset.noteId = note.id; // Store the note ID as a data attribute
-
-      // Add event listener to the "Edit" button to open the edit modal
       editButton.addEventListener('click', () => {
-        const noteContent = note.content;
-        showEditModal(noteContent);
+        showEditModal(note.id); // Pass the note ID as an argument
       });
 
       editCell.appendChild(editButton);
 
-      // editCell.innerHTML = `<button class="edit-button"></button>`;
       archiveCell.innerHTML = `<button class="archive-button" id="archive-button"></button>`;
       deleteCell.innerHTML = `<button class="remove-button"></button>`;
 
@@ -58,7 +49,6 @@ function renderNotesTable() {
   });
 }
 
-// Function to render the summary table
 function renderSummaryTable() {
   const summaryTable = document.querySelector('#summary-table');
   summaryTable.innerHTML = '';
