@@ -243,4 +243,12 @@ function handleEscapeKey(event) {
   }
 }
 
-export { createModal, showModal, hideModal, showEditModal };
+export {
+  createModal,
+  showModal,
+  hideModal,
+  showEditModal,
+  handleBackdropClick,
+  handleAddNote,
+  handleEscapeKey,
+};
